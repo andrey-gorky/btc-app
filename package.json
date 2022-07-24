@@ -1,0 +1,19 @@
+{
+  "name": "btc-app",
+  "version": "1.0.0",
+  "description": "Simple BTC api to get current BTC to UAH rate, plus possibility to work with subscription.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node indexs.js"
+  },
+  "author": "andrii.horkavyi",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.7",
+    "http": "^0.0.1-security",
+    "koa": "^2.13.4",
+    "koa-router": "^12.0.0",
+    "yamljs": "^0.3.0"
+  }
+}

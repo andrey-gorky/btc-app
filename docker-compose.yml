@@ -1,0 +1,21 @@
+version: "3.9"
+
+networks:
+  backend:
+
+services:
+  btc-app:
+    build:
+      context: ./
+    container_name: btc-app
+    hostname: gses2.app
+    networks:
+      - backend
+    env_file:
+      - secrets.env
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/app
+      - ./data:/app/data
+    entrypoint: npm run start
