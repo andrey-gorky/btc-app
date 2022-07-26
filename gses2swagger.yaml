@@ -3,7 +3,7 @@ info:
   description: "asdasdasd"
   version: "1.0.0"
   title: "GSES2 BTC application"
-host: "gses2.app"
+host: "localhost:8080"
 basePath: "/api"
 tags:
   - name: "rate"
@@ -50,7 +50,7 @@ paths:
         "200":
           description: "E-mail додано"
         "409":
-          description: "Повертати, якщо e-mail вже є в базі даних (файловій)"
+          description: "E-mail вже існує"
   /sendEmails:
     post:
       tags:

@@ -11,6 +11,10 @@ module.exports= {
     port: process.env.NODE_APP_INSTANCE,
   },
   swagger: {
-    fileName: process.env.SWAGGER_FILE_NAME
+    fileName: process.env.SWAGGER_FILE_NAME,
+    link: 'http://localhost:8080/docs',
+  },
+  data: {
+    emailsFile: `${__dirname}/../data/emails.json`,
   },
 };

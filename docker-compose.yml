@@ -19,3 +19,15 @@ services:
       - ./:/app
       - ./data:/app/data
     entrypoint: npm run start
+#  swagger-ui:
+#    image: swaggerapi/swagger-ui
+#    container_name: swagger_ui_container
+#    networks:
+#      - backend
+#    ports:
+#      - "80:80"
+##    volumes:
+##      - ./doc:/usr/share/nginx/html/doc
+#    environment:
+#        API_URL: /gses2swagger.yaml
+

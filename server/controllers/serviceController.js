@@ -27,6 +27,7 @@ const about = () => {
       env,
     },
     uptime: String(timer()),
+    swaggerLink: config.swagger.link,
   }
 };
 
