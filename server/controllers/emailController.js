@@ -1,4 +1,3 @@
-const fs = require('node:fs/promises');
 const helper = require('../helpers/subscribeHelper');
 
 const subscribe = async (ctx, next) => {
@@ -21,9 +20,9 @@ const subscribe = async (ctx, next) => {
       await next();
     }
   } catch (e) {
-    console.error(`[*] emailController.js:10::subscribe:23:Error:${e.message}`);
+    console.error(`[*] emailController.js::subscribe::${e.message}`);
     ctx.status = 404;
-    ctx.message = e.message
+    ctx.message = 'Щось пішло не так :('
     await next();
   }
 };

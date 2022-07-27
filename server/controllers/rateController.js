@@ -1,10 +1,20 @@
-const fetch = require('node-fetch');
+const helper = require("../helpers/rateHelper");
 
-const getRate = async () => {
-  console.log('=======  =======', )
-  const response = await fetch('https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=USD&json');
-  const body = await response.json();
-  console.log('======= body =======', body)
+const getRate = async (ctx, next) => {
+  try {
+    const btcUahRate = await helper.getBtcUahRate();
+    Object.assign(ctx, {
+      body: btcUahRate,
+      status: 200,
+    });
+    await next();
+  } catch (e) {
+    console.error(`[*] rateController.js::getRate::${e.message}`);
+    ctx.status = 400;
+    ctx.body = 'Invalid status value'
+    ctx.message = 'Invalid status value'
+    await next();
+  }
 };
 
 module.exports = {
