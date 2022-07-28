@@ -1,8 +1,8 @@
 swagger: "2.0"
 info:
-  description: "asdasdasd"
+  description: "BTC to UAH rate application"
   version: "1.0.0"
-  title: "GSES2 BTC application"
+  title: "BTC application"
 host: "localhost:8080"
 basePath: "/api"
 tags:

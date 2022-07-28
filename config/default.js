@@ -20,5 +20,9 @@ module.exports= {
   thirdPartyApiUrls: {
     bitpay: 'https://bitpay.com/api/rates',
     nbu: 'https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=USD&json',
+  },
+  serviceEmail: {
+    address: 'gorky.movie.blog@gmail.com',
+    pass: 'ztfeggtcwuamvmjv',
   }
 };
