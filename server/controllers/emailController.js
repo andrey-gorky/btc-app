@@ -2,24 +2,32 @@ const helper = require('../helpers/emailHelper');
 const rateHelper = require('../helpers/rateHelper');
 
 const subscribe = async (ctx, next) => {
-  //todo check if email is correct
   try {
     const email = ctx?.request?.body?.email;
-    const isExist = await helper.isEmailExist(email)
-    if (isExist) {
-      Object.assign(ctx, {
-        body: 'E-mail вже існує',
-        status: 409,
-      });
-      await next();
-    } else {
-      await helper.save(email)
-
-      Object.assign(ctx, {
-        body: 'E-mail додано',
-        status: 200,
-      });
-      await next();
+    const isEmailValid = await helper.validateEmail(email);
+    const isExist = await helper.isEmailExist(email);
+    switch (true) {
+      case !isEmailValid:
+        Object.assign(ctx, {
+          body: 'E-mail адреса недійсна',
+          status: 404,
+        });
+        await next();
+        break;
+      case isExist:
+        Object.assign(ctx, {
+          body: 'E-mail вже існує',
+          status: 409,
+        });
+        await next();
+        break;
+      default:
+        await helper.save(email)
+        Object.assign(ctx, {
+          body: 'E-mail додано',
+          status: 200,
+        });
+        await next();
     }
   } catch (e) {
     console.error(`[*] emailController.js::subscribe::${e.message}`);
